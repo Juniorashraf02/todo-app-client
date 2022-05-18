@@ -1,0 +1,32 @@
+[
+    {
+        "_id": 1,
+        "tittle": "Waking up",
+        "description": "I should wake up at 5am"
+    },
+    {
+        "_id": 2,
+        "tittle": "Goto school",
+        "description": "I should go to school"
+    },
+    {
+        "_id": 3,
+        "tittle": "taking gym class",
+        "description": "I should attend gym class at 11am"
+    },
+    {
+        "_id": 4,
+        "tittle": "prayer time",
+        "description": "I should say my prayers"
+    },
+    {
+        "_id": 5,
+        "tittle": "Day Sleep",
+        "description": "I should take a nap at 3pm"
+    },
+    {
+        "_id": 6,
+        "tittle": "Go home early",
+        "description": "I should go home at 6pm"
+    }
+]
