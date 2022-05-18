@@ -1,8 +1,24 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-const SingleTask = ({ task }) => {
-    const {tittle, description} = task;
+const SingleTask = ({ task,setTask,tasks}) => {
+
+    const {tittle, description, _id} = task;
+
+
+    const handleDelete =id=>{
+        fetch(`http://localhost:5000/tasks/${id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data=>{
+            console.log(data);
+            const remaining = tasks.filter(task => task._id !== id);
+            setTask(remaining);
+        })
+        
+    }
+
     return (
         <Table striped bordered hover size="sm">
             <thead>
@@ -18,6 +34,9 @@ const SingleTask = ({ task }) => {
           
                     <td>{tittle}</td>
                     <td>{description}</td>
+                 
+                     <button onClick={()=>handleDelete(_id)} className="btn btn-success text-black bg-green ">Delete  </button>
+          
               
                 </tr>
                
