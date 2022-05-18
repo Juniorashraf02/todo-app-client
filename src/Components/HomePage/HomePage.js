@@ -2,6 +2,10 @@ import { Button } from 'bootstrap';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SingleTask from './SingleTask';
+import { Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const HomePage = () => {
     const [tasks, setTask] = useState([]);
@@ -11,9 +15,19 @@ const HomePage = () => {
             .then(data => setTask(data));
     }, []);
 
+    const [user] = useAuthState(auth); 
+    const handleSignOut=e=>{
+        signOut(auth);
+    }
+
 
     return (
         <div>
+            {
+                user? <button onClick={handleSignOut} className='btn btn-danger'>Sign Out</button>
+                :
+                <Link to='/login'><button className='btn btn-primary'>Sign In</button></Link>
+            }
             <h1>Totall Tasks: {tasks.length}</h1>
 
             <div className="my-5">
@@ -24,13 +38,28 @@ const HomePage = () => {
 
 
             </div>
-
-
+            <Table striped bordered hover size="sm">
+            <thead>
+                <tr>
+          
+                    <th>Task Name</th>
+                    <th>Task Description</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
             {
                 tasks.map(task => <SingleTask
                     task={task} key={task._id} setTask={setTask} tasks={tasks}
                 ></SingleTask>)
             }
+            </tr>
+               
+            </tbody>
+        </Table>
+
+
         </div>
     );
 };

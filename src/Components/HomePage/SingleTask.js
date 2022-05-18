@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
 
 const SingleTask = ({ task,setTask,tasks}) => {
 
@@ -20,16 +19,8 @@ const SingleTask = ({ task,setTask,tasks}) => {
     }
 
     return (
-        <Table striped bordered hover size="sm">
-            <thead>
-                <tr>
-          
-                    <th>Task Name</th>
-                    <th>Task Description</th>
-                  
-                </tr>
-            </thead>
-            <tbody>
+
+       
                 <tr>
           
                     <td>{tittle}</td>
@@ -40,8 +31,8 @@ const SingleTask = ({ task,setTask,tasks}) => {
               
                 </tr>
                
-            </tbody>
-        </Table>
+           
+
     );
 };
 
