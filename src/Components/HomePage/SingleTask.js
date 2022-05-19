@@ -6,7 +6,7 @@ const SingleTask = ({ task,setTask,tasks}) => {
 
 
     const handleDelete =id=>{
-        fetch(`http://localhost:5000/tasks/${id}`,{
+        fetch(`https://polar-caverns-52772.herokuapp.com/tasks/${id}`,{
             method: 'DELETE',
         })
         .then(res => res.json())

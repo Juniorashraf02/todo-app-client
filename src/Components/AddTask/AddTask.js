@@ -6,7 +6,7 @@ const AddTask = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data =>{
         console.log(data);
-        fetch('http://localhost:5000/tasks',{
+        fetch('https://polar-caverns-52772.herokuapp.com/tasks',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

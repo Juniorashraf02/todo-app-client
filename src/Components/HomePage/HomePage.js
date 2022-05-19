@@ -10,7 +10,7 @@ import { signOut } from 'firebase/auth';
 const HomePage = () => {
     const [tasks, setTask] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch('https://polar-caverns-52772.herokuapp.com/tasks')
             .then(res => res.json())
             .then(data => setTask(data));
     }, []);

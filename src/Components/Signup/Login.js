@@ -2,7 +2,8 @@
 import React from "react";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import auth from './../firebase.init';
 
 const Signup = () => {
@@ -23,6 +24,16 @@ const Signup = () => {
         signInWithGoogle()
     }
 
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    if(user||guser){
+        navigate(from, {replace: true});
+    }
+    if(loading||gloading){
+        return <p>Loading</p>
+    }
 
 
     return (
